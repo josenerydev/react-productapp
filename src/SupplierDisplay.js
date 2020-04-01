@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { SupplierEditor } from "./SupplierEditor";
 import { SupplierTable } from "./SupplierTable";
-import { connect } from 'react-redux';
-import { startCreatingSupplier } from './store/stateActions';
+import { connect } from "react-redux";
+import { startCreatingSupplier } from "./store/stateActions";
 import { SUPPLIERS } from "./store/dataTypes";
 import { EditorConnector } from "./store/EditorConnector";
 import { TableConnector } from "./store/TableConnector";
@@ -22,21 +22,22 @@ const mapDispatchToProps = {
 
 const connectFunction = connect(mapStateToProps, mapDispatchToProps);
 
-export const SupplierDisplay = connectFunction(class extends Component {
+export const SupplierDisplay = connectFunction(
+    class extends Component {
 
-    render() {
-        if (this.props.editing) {
-            return <ConnectedEditor key={this.props.selected.id || -1} />
-        } else {
-            return <div className="m-2">
-                <ConnectedTable />
-                <div className="text-center">
-                    <button className="btn btn-primary m-1"
-                        onClick={this.props.createSupplier}>
-                        Create Supplier
-                </button>
-                </div>
-            </div>
+        render() {
+            if (this.props.editing) {
+                return <ConnectedEditor key={ this.props.selected.id || -1 } />                
+            } else {
+                return <div className="m-2">
+                    <ConnectedTable needSuppliers={ true } />
+                    <div className="text-center">
+                        <button className="btn btn-primary m-1" 
+                            onClick={ this.props.createSupplier }>
+                                Create Supplier
+                        </button>
+                    </div>                        
+                </div>        
+            }
         }
-    }
-})
+    })

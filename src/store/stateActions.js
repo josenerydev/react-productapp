@@ -21,11 +21,9 @@ export const endEditing = () => ({
 })
 
 export const startCreatingProduct = () => ({
-    type: STATE_START_CREATING,
-    dataType: PRODUCTS
+    type: STATE_START_CREATING, dataType: PRODUCTS
 })
 
 export const startCreatingSupplier = () => ({
-    type: STATE_START_CREATING,
-    dataType: SUPPLIERS
+    type: STATE_START_CREATING, dataType: SUPPLIERS
 })
